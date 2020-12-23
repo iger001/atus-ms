@@ -1,0 +1,36 @@
+spring:
+  profiles: default
+  datasource:
+    url: jdbc:mysql://localhost:3306/atusdb?serverTimezone=America/Mexico_City
+    username: root
+    password: 
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+security:
+  jwt:
+    token:
+      secret-key: algun_codigo_secreto_qwerty_pa_validar_token
+      expire-length: 3600000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
+      
+server:
+  port: 8081
+
+info:
+  component: Microservicio para la funcionalidad de usuarios
+
+logging:
+  file:
+    name: msAtus-jwt-auth.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework: INFO
+    com.datacubik.atus.usuarios: DEBUG
+
