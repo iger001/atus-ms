@@ -17,7 +17,11 @@ security:
     token:
       secret-key: algun_codigo_secreto_qwerty_pa_validar_token
       expire-length: 3600000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
-      
+
+basicAuthentication:
+  clientId: atus-gui
+  clientSecret: iger001*$$
+
 server:
   port: 8081
 
