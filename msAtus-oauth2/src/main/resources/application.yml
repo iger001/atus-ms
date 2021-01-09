@@ -1,0 +1,37 @@
+spring:
+  profiles: default
+  datasource:
+    url: jdbc:mysql://localhost:3306/atusdb?serverTimezone=America/Mexico_City
+    username: root
+    password: 
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    
+server:
+  servlet:
+    contextPath: /msAtus-oauth  
+  port: 9100
+
+info:
+  component: Microservicio para la funcionalidad del oauth2
+
+logging:
+  file:
+    name: msAtus-oauth.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework: INFO
+    mx.gob.imss.cit.BITACORA: DEBUG
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
